@@ -12,10 +12,10 @@ spec:
             valueFile: clusters/wi-develop-eks-cluster/addons/grafana.yaml
             namespace: monitoring
 
-          - name: ingress-nginx
-            path: eks-cluster-components/charts/ingress-nginx
-            valueFile: clusters/wi-develop-eks-cluster/addons/ingress-nginx.yaml
-            namespace: ingress-nginx
+          # - name: ingress-nginx
+          #   path: eks-cluster-components/charts/ingress-nginx
+          #   valueFile: clusters/wi-develop-eks-cluster/addons/ingress-nginx.yaml
+          #   namespace: ingress-nginx
 
           - name: keda
             path: eks-cluster-components/charts/keda
@@ -42,15 +42,15 @@ spec:
             valueFile: clusters/wi-develop-eks-cluster/addons/tempo.yaml
             namespace: tempo
 
-          - name: kubecost
-            path: eks-cluster-components/charts/kubecost
-            valueFile: clusters/wi-develop-eks-cluster/addons/kubecost.yaml
-            namespace: kubecost
+          # - name: kubecost
+          #   path: eks-cluster-components/charts/kubecost
+          #   valueFile: clusters/wi-develop-eks-cluster/addons/kubecost.yaml
+          #   namespace: kubecost
 
-          - name: aws-load-balancer-controller
-            path: eks-cluster-components/charts/aws-alb-controller
-            valueFile: clusters/wi-develop-eks-cluster/addons/aws-alb-controller.yaml
-            namespace: kube-system
+          # - name: aws-load-balancer-controller
+          #   path: eks-cluster-components/charts/aws-alb-controller
+          #   valueFile: clusters/wi-develop-eks-cluster/addons/aws-alb-controller.yaml
+          #   namespace: kube-system
 
   template:
     metadata:
