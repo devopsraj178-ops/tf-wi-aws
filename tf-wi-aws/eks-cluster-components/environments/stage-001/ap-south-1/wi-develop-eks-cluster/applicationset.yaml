@@ -8,47 +8,47 @@ spec:
     - list:
         elements:
           - name: grafana
-            path: eks-cluster-components/charts/grafana
+            path: tf-wi-aws/eks-cluster-components/charts/grafana
             valueFile: environments/stage-001/ap-south-1/wi-develop-eks-cluster/addons/grafana.yaml
             namespace: monitoring
 
           # - name: ingress-nginx
-          #   path: eks-cluster-components/charts/ingress-nginx
+          #   path: tf-wi-aws/eks-cluster-components/charts/ingress-nginx
           #   valueFile: environments/stage-001/ap-south-1/wi-develop-eks-cluster/addons/ingress-nginx.yaml
           #   namespace: ingress-nginx
 
           - name: keda
-            path: eks-cluster-components/charts/keda
+            path: tf-wi-aws/eks-cluster-components/charts/keda
             valueFile: environments/stage-001/ap-south-1/wi-develop-eks-cluster/addons/keda.yaml
             namespace: keda
 
           - name: loki
-            path: eks-cluster-components/charts/loki
+            path: tf-wi-aws/eks-cluster-components/charts/loki
             valueFile: environments/stage-001/ap-south-1/wi-develop-eks-cluster/addons/loki.yaml
             namespace: loki
 
           - name: prometheus
-            path: eks-cluster-components/charts/prometheus
+            path: tf-wi-aws/eks-cluster-components/charts/prometheus
             valueFile: environments/stage-001/ap-south-1/wi-develop-eks-cluster/addons/prometheus.yaml
             namespace: monitoring
 
           - name: statsd-exporter
-            path: eks-cluster-components/charts/statsd-exporter
+            path: tf-wi-aws/eks-cluster-components/charts/statsd-exporter
             valueFile: environments/stage-001/ap-south-1/wi-develop-eks-cluster/addons/statsd-exporter.yaml
             namespace: monitoring
 
           - name: tempo
-            path: eks-cluster-components/charts/tempo
+            path: tf-wi-aws/eks-cluster-components/charts/tempo
             valueFile: environments/stage-001/ap-south-1/wi-develop-eks-cluster/addons/tempo.yaml
             namespace: tempo
 
           # - name: kubecost
-          #   path: eks-cluster-components/charts/kubecost
+          #   path: tf-wi-aws/eks-cluster-components/charts/kubecost
           #   valueFile: environments/stage-001/ap-south-1/wi-develop-eks-cluster/addons/kubecost.yaml
           #   namespace: kubecost
 
           # - name: aws-load-balancer-controller
-          #   path: eks-cluster-components/charts/aws-alb-controller
+          #   path: tf-wi-aws/eks-cluster-components/charts/aws-alb-controller
           #   valueFile: environments/stage-001/ap-south-1/wi-develop-eks-cluster/addons/aws-alb-controller.yaml
           #   namespace: kube-system
 
