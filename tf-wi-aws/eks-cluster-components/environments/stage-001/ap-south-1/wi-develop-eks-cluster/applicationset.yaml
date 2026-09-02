@@ -1,0 +1,74 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: birdeye-addons
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - name: grafana
+            path: eks-cluster-components/charts/grafana
+            valueFile: clusters/wi-develop-eks-cluster/addons/grafana.yaml
+            namespace: monitoring
+
+          - name: ingress-nginx
+            path: eks-cluster-components/charts/ingress-nginx
+            valueFile: clusters/wi-develop-eks-cluster/addons/ingress-nginx.yaml
+            namespace: ingress-nginx
+
+          - name: keda
+            path: eks-cluster-components/charts/keda
+            valueFile: clusters/wi-develop-eks-cluster/addons/keda.yaml
+            namespace: keda
+
+          - name: loki
+            path: eks-cluster-components/charts/loki
+            valueFile: clusters/wi-develop-eks-cluster/addons/loki.yaml
+            namespace: loki
+
+          - name: prometheus
+            path: eks-cluster-components/charts/prometheus
+            valueFile: clusters/wi-develop-eks-cluster/addons/prometheus.yaml
+            namespace: monitoring
+
+          - name: statsd-exporter
+            path: eks-cluster-components/charts/statsd-exporter
+            valueFile: clusters/wi-develop-eks-cluster/addons/statsd-exporter.yaml
+            namespace: monitoring
+
+          - name: tempo
+            path: eks-cluster-components/charts/tempo
+            valueFile: clusters/wi-develop-eks-cluster/addons/tempo.yaml
+            namespace: tempo
+
+          - name: kubecost
+            path: eks-cluster-components/charts/kubecost
+            valueFile: clusters/wi-develop-eks-cluster/addons/kubecost.yaml
+            namespace: kubecost
+
+          - name: aws-load-balancer-controller
+            path: eks-cluster-components/charts/aws-alb-controller
+            valueFile: clusters/wi-develop-eks-cluster/addons/aws-alb-controller.yaml
+            namespace: kube-system
+
+  template:
+    metadata:
+      name: '{{name}}'
+      namespace: argocd
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/WorkIndia-Private/tf-wi-aws.git
+        targetRevision: main
+        path: '{{path}}'
+        helm:
+          valueFiles:
+            - '../../{{valueFile}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{namespace}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
