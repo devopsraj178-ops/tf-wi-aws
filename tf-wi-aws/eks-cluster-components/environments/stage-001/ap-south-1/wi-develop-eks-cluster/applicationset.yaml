@@ -59,7 +59,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/WorkIndia-Private/tf-wi-aws.git
+        repoURL: https://github.com/devopsraj178-ops/tf-wi-aws.git
         targetRevision: main
         path: '{{path}}'
         helm:
